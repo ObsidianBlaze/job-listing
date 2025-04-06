@@ -21,5 +21,6 @@
   <ul>
     <li v-for="task in tasks" :key="task"> {{ task }}</li>
   </ul>
-  <a v-bind:href="link">Click here for Google.</a>
+  <!-- <a v-bind:href="link">Click here for Google.</a> -->
+  <a :href="link">Click here for Google.</a>
 </template>
