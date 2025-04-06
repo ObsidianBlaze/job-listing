@@ -4,7 +4,8 @@
       return{
         name : "John Doe",
         status: 'pending',
-        tasks: ['Task One', 'Task Two', 'Task Three']
+        tasks: ['Task One', 'Task Two', 'Task Three'],
+        link: 'https://google.com',
       }
     }
   }
@@ -20,4 +21,5 @@
   <ul>
     <li v-for="task in tasks" :key="task"> {{ task }}</li>
   </ul>
+  <a v-bind:href="link">Click here for Google.</a>
 </template>
