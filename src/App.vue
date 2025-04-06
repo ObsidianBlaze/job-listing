@@ -7,6 +7,16 @@
         tasks: ['Task One', 'Task Two', 'Task Three'],
         link: 'https://google.com',
       }
+    },
+    methods: {
+      toggleStatus(){
+        if(this.status === 'active'){
+          this.status = 'pending';
+        }
+        else if(this.status === 'pending'){
+          this.status = 'active';
+        }
+      }
     }
   }
 </script>
@@ -23,4 +33,6 @@
   </ul>
   <!-- <a v-bind:href="link">Click here for Google.</a> -->
   <a :href="link">Click here for Google.</a>
+
+  <button v-on:click="toggleStatus">Change Status</button>
 </template>
