@@ -1,3 +1,17 @@
+<script>
+  export default{
+    data() {
+      return{
+        name : "John Osas",
+        status: 'pending',
+      }
+    }
+  }
+</script>
+
 <template>
-  <h1>Vue Jobs</h1>
+  <h1>{{ name }}, How are you</h1>
+  <p v-if="status === 'active'"> User is active</p>
+  <p v-else-if="status === 'pending'"> User is pending</p>
+  <p v-else> User is inactive</p>
 </template>
