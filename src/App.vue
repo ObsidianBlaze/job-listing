@@ -14,7 +14,10 @@
           this.status = 'pending';
         }
         else if(this.status === 'pending'){
-          this.status = 'active';
+          this.status = 'inactive';
+        }
+        else{
+          this.status = 'active'
         }
       }
     }
@@ -34,5 +37,7 @@
   <!-- <a v-bind:href="link">Click here for Google.</a> -->
   <a :href="link">Click here for Google.</a>
 
-  <button v-on:click="toggleStatus">Change Status</button>
+  <br />
+  <!-- <button v-on:click="toggleStatus">Change Status</button> -->
+  <button @click="toggleStatus">Change Status</button>
 </template>
