@@ -27,5 +27,7 @@ coverage
 *.sln
 *.sw?
 .vscode
+.*_theme_files
+_theme_files
 
 *.tsbuildinfo
