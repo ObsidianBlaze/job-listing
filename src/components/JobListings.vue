@@ -1,10 +1,12 @@
 <script setup>
-import jobData from '@/jobs.json';
-import { ref, defineProps } from 'vue';
+// import jobData from '@/jobs.json';
+import { ref, defineProps, onMounted } from 'vue';
 import JobListing from './JobListing.vue';
 import { RouterLink } from 'vue-router';
+import axios from 'axios';
 
-const jobs = ref(jobData);
+// const jobs = ref(jobData);
+const jobs = ref([]);
 
 defineProps({
     limit: Number,
@@ -14,6 +16,14 @@ defineProps({
     },
 })
 
+onMounted(async () => {
+    try {
+        const response = await axios.get('http://localhost:5000/jobs');
+        jobs.value = response.data;
+    } catch (errors) {
+        console.error('Error fetching jobs', error);
+    }
+})
 </script>
 
 <template>
@@ -29,7 +39,8 @@ defineProps({
     </section>
 
     <section v-if="showButton" class="m-auto max-w-lg my-10 px-6">
-        <RouterLink :to="'/jobs'" class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700">View
+        <RouterLink :to="'/jobs'" class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700">
+            View
             All Jobs</RouterLink>
     </section>
 </template>
